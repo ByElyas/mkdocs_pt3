@@ -1,0 +1,54 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Instalaci\u00f3 de caracter\u00edstiques i configuraci\u00f3 de dominis en Windows\n\n\nInstal\u00b7lar un servidor Windows Server 2012 sense GUI amb mode Core:\n\n\n\n\n2.1 Modificar el nom del servidor:\n\n\n-Al executar la comanda \nsconfig\n s'ens obrir\u00e0 aquest \"menu\" de terminal on tindrem moltes opcions...a nosaltres ara ens interesa la 2 per tal de canviar el nom al servidor. Elegim la opci\u00f3 2, i posem el nom que vulguem.\n\n\n\n\n2.2 Posar una IP fixa:\n\n\n-Dins del mateix men\u00fa eligirem la opci\u00f3 8. El programa ens demanar\u00e1 elegir l'adaptador de xarxa que volem usar...\n\n\n\n\n-...i una vegada dins ens portar\u00e1  un submen\u00fa. Ens interessa la primera opci\u00f3 per tal de canviar la IP. Al submen\u00fa del submen\u00fa (...) tornarem a elegir la primera opci\u00f3, per finalment si poder canviar la ip. Ens demanra les seguents coses:\n\n\n-Adre\u00e7a IP, M\u00e0scara de subxarxa i Porta d'enlla\u00e7\n\n\n\n\n2.3 Desactivar les actualitzacions.\n\n\n-Opci\u00f3 5. Una vegada elegida tindrem que elegir entre actualitzacions automatiques (A) o manuals (M). Nosaltres, per a no tindreles autom\u00e0tiques, les posarem en manual.\n\n\n\n\n2.4 Comprovar que la zona hor\u00e1ria sigui la correcta\n\n\n-Opci\u00f3 9 del men\u00fa del \nsconfig\n. Una vegada elegit s'obrir\u00e0 la finestra normal de windows per tal de poder configurar l'hora. Simpelement posem que sigui l'hora pertanyent a Madrid i ja est\u00e1.\n\n\n\n\nTreure la interf\u00edcie Shell de la m\u00e0quina amb GUI.\n\n\nPasos previs\n\n\n-Al iniciar el Windows Server 2012 sempre s'obri aquest \"Panel de administraci\u00f3n\" del servidor. Per tal de treure la interficie, anem al men\u00fa de \"Administrar\" i all\u00ed dins a \"Asistente para quitar roles y caracter\u00edsticas.\nAnem pasant els men\u00fas fins que arribem a \"Caracter\u00edsticas\". All\u00ed busquem la casella de \"Shell gr\u00e1fico de servidor\" i la desmarquem.\n\n\n\n\n-Passem pantalles fins arribar a la confirmaci\u00f3. Aqui ens sortir\u00e1n totes les opcions que hem elegit (nom\u00e9s ens tindria que sortir la del Shell). Marquem la casella de que es reinici automaticament si ho necessita, i avant.\n\n\n\n\n\n\n-I ara, una vegada aplicat tot i reiniciada la m\u00e0quina, quan s'inici Windows nom\u00e9s ens apareixera la CMD i la pantalla de administraci\u00f3 propia del Windows Server 2012..res m\u00e9s.\n\n\n\n\nProc\u00e9s d'eliminaci\u00f3 de la interficie:\n\n\n-Afegim la .ISO del propi windows server a la MV.\n\n\n\n\n-Executem el powershell. Creem un nou directori amb \nmkdir\n. Assignem la nostra versi\u00f3 amb \ndism /get-wiminfo /wimfile:d:\\sources\\install.wim\n\n\n\n\n-Muntem al directori creat: \ndism /mount-wim /wimfile:d:\\sources\\install.wim /index:2 /mountdir:c:\\wim /readonly\n\n\n\n\n-Instal\u00b7lem amb: \nInstall-WindowsFeature Server-Gui-Mgmt-Infra \u2013Source C:\\wim \\Windows\\WinSxS\n\n\n\n\n-I una vegada a acabat apaguem amb el \nshutdown -r -t 0",
+            "title": "Home"
+        },
+        {
+            "location": "/#instalacio-de-caracteristiques-i-configuracio-de-dominis-en-windows",
+            "text": "",
+            "title": "Instalaci\u00f3 de caracter\u00edstiques i configuraci\u00f3 de dominis en Windows"
+        },
+        {
+            "location": "/#installar-un-servidor-windows-server-2012-sense-gui-amb-mode-core",
+            "text": "",
+            "title": "Instal\u00b7lar un servidor Windows Server 2012 sense GUI amb mode Core:"
+        },
+        {
+            "location": "/#21-modificar-el-nom-del-servidor",
+            "text": "-Al executar la comanda  sconfig  s'ens obrir\u00e0 aquest \"menu\" de terminal on tindrem moltes opcions...a nosaltres ara ens interesa la 2 per tal de canviar el nom al servidor. Elegim la opci\u00f3 2, i posem el nom que vulguem.",
+            "title": "2.1 Modificar el nom del servidor:"
+        },
+        {
+            "location": "/#22-posar-una-ip-fixa",
+            "text": "-Dins del mateix men\u00fa eligirem la opci\u00f3 8. El programa ens demanar\u00e1 elegir l'adaptador de xarxa que volem usar...   -...i una vegada dins ens portar\u00e1  un submen\u00fa. Ens interessa la primera opci\u00f3 per tal de canviar la IP. Al submen\u00fa del submen\u00fa (...) tornarem a elegir la primera opci\u00f3, per finalment si poder canviar la ip. Ens demanra les seguents coses:  -Adre\u00e7a IP, M\u00e0scara de subxarxa i Porta d'enlla\u00e7",
+            "title": "2.2 Posar una IP fixa:"
+        },
+        {
+            "location": "/#23-desactivar-les-actualitzacions",
+            "text": "-Opci\u00f3 5. Una vegada elegida tindrem que elegir entre actualitzacions automatiques (A) o manuals (M). Nosaltres, per a no tindreles autom\u00e0tiques, les posarem en manual.",
+            "title": "2.3 Desactivar les actualitzacions."
+        },
+        {
+            "location": "/#24-comprovar-que-la-zona-horaria-sigui-la-correcta",
+            "text": "-Opci\u00f3 9 del men\u00fa del  sconfig . Una vegada elegit s'obrir\u00e0 la finestra normal de windows per tal de poder configurar l'hora. Simpelement posem que sigui l'hora pertanyent a Madrid i ja est\u00e1.",
+            "title": "2.4 Comprovar que la zona hor\u00e1ria sigui la correcta"
+        },
+        {
+            "location": "/#treure-la-interficie-shell-de-la-maquina-amb-gui",
+            "text": "",
+            "title": "Treure la interf\u00edcie Shell de la m\u00e0quina amb GUI."
+        },
+        {
+            "location": "/#pasos-previs",
+            "text": "-Al iniciar el Windows Server 2012 sempre s'obri aquest \"Panel de administraci\u00f3n\" del servidor. Per tal de treure la interficie, anem al men\u00fa de \"Administrar\" i all\u00ed dins a \"Asistente para quitar roles y caracter\u00edsticas.\nAnem pasant els men\u00fas fins que arribem a \"Caracter\u00edsticas\". All\u00ed busquem la casella de \"Shell gr\u00e1fico de servidor\" i la desmarquem.   -Passem pantalles fins arribar a la confirmaci\u00f3. Aqui ens sortir\u00e1n totes les opcions que hem elegit (nom\u00e9s ens tindria que sortir la del Shell). Marquem la casella de que es reinici automaticament si ho necessita, i avant.    -I ara, una vegada aplicat tot i reiniciada la m\u00e0quina, quan s'inici Windows nom\u00e9s ens apareixera la CMD i la pantalla de administraci\u00f3 propia del Windows Server 2012..res m\u00e9s.",
+            "title": "Pasos previs"
+        },
+        {
+            "location": "/#proces-deliminacio-de-la-interficie",
+            "text": "-Afegim la .ISO del propi windows server a la MV.   -Executem el powershell. Creem un nou directori amb  mkdir . Assignem la nostra versi\u00f3 amb  dism /get-wiminfo /wimfile:d:\\sources\\install.wim   -Muntem al directori creat:  dism /mount-wim /wimfile:d:\\sources\\install.wim /index:2 /mountdir:c:\\wim /readonly   -Instal\u00b7lem amb:  Install-WindowsFeature Server-Gui-Mgmt-Infra \u2013Source C:\\wim \\Windows\\WinSxS   -I una vegada a acabat apaguem amb el  shutdown -r -t 0",
+            "title": "Proc\u00e9s d'eliminaci\u00f3 de la interficie:"
+        }
+    ]
+}
